@@ -1,0 +1,10 @@
+C:\Users\care\source\repos\SpmManagement\SpmManagement\obj\Debug\SpmManagement.csproj.AssemblyReference.cache
+C:\Users\care\source\repos\SpmManagement\SpmManagement\obj\Debug\SpmManagement.Properties.Resources.resources
+C:\Users\care\source\repos\SpmManagement\SpmManagement\obj\Debug\SpmManagement.Views.ClientView.resources
+C:\Users\care\source\repos\SpmManagement\SpmManagement\obj\Debug\SpmManagement.csproj.GenerateResource.cache
+C:\Users\care\source\repos\SpmManagement\SpmManagement\obj\Debug\SpmManagement.csproj.CoreCompileInputs.cache
+C:\Users\care\source\repos\SpmManagement\SpmManagement\bin\Debug\SpmManagement.exe.config
+C:\Users\care\source\repos\SpmManagement\SpmManagement\bin\Debug\SpmManagement.exe
+C:\Users\care\source\repos\SpmManagement\SpmManagement\bin\Debug\SpmManagement.pdb
+C:\Users\care\source\repos\SpmManagement\SpmManagement\obj\Debug\SpmManagement.exe
+C:\Users\care\source\repos\SpmManagement\SpmManagement\obj\Debug\SpmManagement.pdb
