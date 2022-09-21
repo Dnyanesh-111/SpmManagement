@@ -90,5 +90,17 @@ namespace SpmManagement.Views
         {
             dataGridView1.DataSource = clientList;
         }
+
+        private void ClientView_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'spmSystemDataSet.clients' table. You can move, or remove it, as needed.
+            this.clientsTableAdapter.Fill(this.spmSystemDataSet.clients);
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

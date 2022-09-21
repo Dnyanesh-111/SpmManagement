@@ -53,6 +53,11 @@
     <Compile Include="Presenters\ClientPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpmSystemDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SpmSystemDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Views\ClientView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +79,16 @@
     <EmbeddedResource Include="Views\ClientView.resx">
       <DependentUpon>ClientView.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\Program.datasource" />
+    <None Include="Properties\DataSources\SpmManagement.Models.ClientsModel.datasource" />
+    <None Include="Properties\DataSources\SpmManagement.Models.IClientsRepository.datasource" />
+    <None Include="Properties\DataSources\SpmManagement.Presenters.ClientPresenter.datasource" />
+    <None Include="Properties\DataSources\SpmManagement.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\SpmManagement.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\SpmManagement.Views.ClientView.datasource" />
+    <None Include="Properties\DataSources\SpmManagement.Views.IClientsView.datasource" />
+    <None Include="Properties\DataSources\SpmManagement._Repositories.BaseRepository.datasource" />
+    <None Include="Properties\DataSources\SpmManagement._Repositories.ClientRepository.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -83,6 +98,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="SpmSystemDataSet.xsc">
+      <DependentUpon>SpmSystemDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SpmSystemDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SpmSystemDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SpmSystemDataSet.xss">
+      <DependentUpon>SpmSystemDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
