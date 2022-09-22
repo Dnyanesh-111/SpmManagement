@@ -32,6 +32,7 @@ namespace SpmManagement.Views
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnClose = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -85,12 +86,25 @@ namespace SpmManagement.Views
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.btnClose);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1014, 53);
             this.panel1.TabIndex = 1;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Location = new System.Drawing.Point(966, 11);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(36, 34);
+            this.btnClose.TabIndex = 7;
+            this.btnClose.Text = "X";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.button1_Click);
             // 
             // tabControl1
             // 
@@ -120,7 +134,6 @@ namespace SpmManagement.Views
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Client List";
             this.tabPage1.UseVisualStyleBackColor = true;
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // btnDelete
             // 
@@ -409,7 +422,6 @@ namespace SpmManagement.Views
             this.Controls.Add(this.panel1);
             this.Name = "ClientView";
             this.Text = "ClientView";
-            this.Load += new System.EventHandler(this.ClientView_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
@@ -459,5 +471,6 @@ namespace SpmManagement.Views
         private SpmSystemDataSet spmSystemDataSet;
         private System.Windows.Forms.BindingSource clientsBindingSource;
         private SpmSystemDataSetTableAdapters.clientsTableAdapter clientsTableAdapter;
+        private System.Windows.Forms.Button btnClose;
     }
 }

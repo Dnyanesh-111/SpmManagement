@@ -23,9 +23,8 @@ namespace SpmManagement
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             string sqlConnectionString = ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
-            IClientsView view = new ClientView();
-            IClientsRepository repository = new ClientRepository(sqlConnectionString);
-            new ClientPresenter(view, repository);
+            IMainView view = new MainView();
+            new MainPresenter(view, sqlConnectionString);
             Application.Run((Form)view);
         }
     }

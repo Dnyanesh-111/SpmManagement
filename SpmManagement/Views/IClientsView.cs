@@ -11,7 +11,7 @@ namespace SpmManagement.Views
     {
         //Properties - Fields
         string Id { get; set; }
-        string Name { get; set; }
+        string CName { get; set; }
         string Email { get; set; }
         string Mobile { get; set; }
         string City { get; set; }

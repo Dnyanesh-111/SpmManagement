@@ -23,15 +23,64 @@ namespace SpmManagement.Views
             InitializeComponent();
             AssociateAndRaiseViewEvents();
             tabControl1.TabPages.Remove(tabPage2);
+            btnClose.Click += delegate { this.Close(); };
         }
 
         private void AssociateAndRaiseViewEvents()
-        {
+        {   
+            //Search
             btnSearch.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
             txtSearch.KeyDown += (s, e) =>
             {
                 if (e.KeyCode == Keys.Enter)
                     SearchEvent?.Invoke(this, EventArgs.Empty);
+            };
+            //Add Event
+            btnAddNew.Click += delegate
+            {
+                AddNewEvent?.Invoke(this, EventArgs.Empty);
+                tabControl1.TabPages.Remove(tabPage1);
+                tabControl1.TabPages.Add(tabPage2);
+                tabPage2.Text = "Add new client";
+            };
+            //Eidt Event
+            btnEdit.Click += delegate
+            {
+                EditEvent?.Invoke(this, EventArgs.Empty);
+                tabControl1.TabPages.Remove(tabPage1);
+                tabControl1.TabPages.Add(tabPage2);
+                tabPage2.Text = "Edit client";
+            };
+            //Save Event
+            btnSave.Click += delegate
+            {
+                SaveEvent?.Invoke(this, EventArgs.Empty);
+                if (isSuccessful)
+                {
+                    tabControl1.TabPages.Remove(tabPage2);
+                    tabControl1.TabPages.Add(tabPage1);
+                }
+                MessageBox.Show(Message);
+            };
+            //Cancel Event
+            btnCancel.Click += delegate
+            {
+                CancelEvent?.Invoke(this, EventArgs.Empty);
+                    tabControl1.TabPages.Remove(tabPage2);
+                    tabControl1.TabPages.Add(tabPage1);
+            
+            };
+            //Delete Event
+            btnDelete.Click += delegate
+            {
+                var result=  MessageBox.Show("Are you sure you want to delete the selected client?","Warning",
+                    MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+
+                if(result == DialogResult.Yes)
+                {
+                    DeleteEvent?.Invoke(this, EventArgs.Empty);
+                    MessageBox.Show(Message);
+                }
             };
         }
 
@@ -40,7 +89,11 @@ namespace SpmManagement.Views
             get => txtId.Text; 
             set => txtId.Text = value; 
         }
-        public string Email {
+        public new string CName
+        {
+            get => txtName.Text; 
+            set => txtName.Text = value; 
+        }public string Email {
             get => txtEmail.Text; 
             set => txtEmail.Text = value; 
         }
@@ -91,14 +144,27 @@ namespace SpmManagement.Views
             dataGridView1.DataSource = clientList;
         }
 
-        private void ClientView_Load(object sender, EventArgs e)
+        //Singleton Pattern (Open a single form instance)
+        private static ClientView instance;
+        public static ClientView GetInstance(Form parentContainer)
         {
-            // TODO: This line of code loads data into the 'spmSystemDataSet.clients' table. You can move, or remove it, as needed.
-            this.clientsTableAdapter.Fill(this.spmSystemDataSet.clients);
-
+            if (instance == null || instance.IsDisposed)
+            {
+                instance = new ClientView();
+                instance.MdiParent = parentContainer;
+                instance.FormBorderStyle = FormBorderStyle.None;
+                instance.Dock = DockStyle.Fill;
+            }
+            else
+            {
+                if (instance.WindowState == FormWindowState.Minimized)
+                    instance.WindowState = FormWindowState.Normal;
+                instance.BringToFront();
+            }
+            return instance;
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }

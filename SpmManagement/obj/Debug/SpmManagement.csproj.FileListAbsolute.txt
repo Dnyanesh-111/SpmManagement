@@ -8,3 +8,4 @@ C:\Users\care\source\repos\SpmManagement\SpmManagement\bin\Debug\SpmManagement.e
 C:\Users\care\source\repos\SpmManagement\SpmManagement\bin\Debug\SpmManagement.pdb
 C:\Users\care\source\repos\SpmManagement\SpmManagement\obj\Debug\SpmManagement.exe
 C:\Users\care\source\repos\SpmManagement\SpmManagement\obj\Debug\SpmManagement.pdb
+C:\Users\care\source\repos\SpmManagement\SpmManagement\obj\Debug\SpmManagement.Views.MainView.resources

@@ -18,24 +18,63 @@ namespace SpmManagement._Repositories
         }
         public void Add(ClientsModel clientsModel)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = @"insert into Clients (cname,email,mobile,city,state,country)
+                                       values(@name,@email,@mobile,@city,@state,@country)";
+                command.Parameters.Add("@name", SqlDbType.VarChar).Value = clientsModel.CName;
+                command.Parameters.Add("@email", SqlDbType.VarChar).Value = clientsModel.Email;
+                command.Parameters.Add("@mobile", SqlDbType.VarChar).Value = clientsModel.Mobile;
+                command.Parameters.Add("@city", SqlDbType.VarChar).Value = clientsModel.City;
+                command.Parameters.Add("@state", SqlDbType.VarChar).Value = clientsModel.State;
+                command.Parameters.Add("@country", SqlDbType.VarChar).Value = clientsModel.Country;
+                command.ExecuteNonQuery();
+            }
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = "delete from Clients where clientid=@id";
+                command.Parameters.Add("@id", SqlDbType.Int).Value =id;
+                command.ExecuteNonQuery();
+            }
         }
 
         public void Edit(ClientsModel clientsModel)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = "update clients Set cname='"+clientsModel.CName+ "', email='" + clientsModel.Email + "', mobile='" + clientsModel.Mobile + "',city = '"+clientsModel.City+ "', " +
+                    "state ='" + clientsModel.State + "', country='" + clientsModel.Country + "' where clientid='" + clientsModel.Id + "'";
+
+
+                //command.Parameters.Add("@id", SqlDbType.Int).Value = clientsModel.Id;
+                //command.Parameters.Add("@name", SqlDbType.VarChar).Value = clientsModel.CName;
+                //command.Parameters.Add("@email", SqlDbType.VarChar).Value = clientsModel.Email;
+                //command.Parameters.Add("@mobile", SqlDbType.VarChar).Value = clientsModel.Mobile;
+                //command.Parameters.Add("@city", SqlDbType.VarChar).Value = clientsModel.City;
+                //command.Parameters.Add("@state", SqlDbType.VarChar).Value = clientsModel.State;
+                //command.Parameters.Add("@country", SqlDbType.VarChar).Value = clientsModel.Country;
+                command.ExecuteNonQuery();
+            }
         }
 
         public IEnumerable<ClientsModel> GetAll()
         {
             var clientList = new List<ClientsModel>();
             using (var connection = new SqlConnection(connectionString))
-                using(var command=new SqlCommand())
+            using(var command=new SqlCommand())
             {
                 connection.Open();
                 command.Connection = connection;
@@ -46,7 +85,7 @@ namespace SpmManagement._Repositories
                     {
                         var clientModel = new ClientsModel();
                         clientModel.Id = (int)reader[0];
-                        clientModel.Name = reader[1].ToString();
+                        clientModel.CName = reader[1].ToString();
                         clientModel.Email = reader[2].ToString();
                         clientModel.Mobile = reader[3].ToString();
                         clientModel.City = reader[4].ToString();
@@ -82,7 +121,7 @@ namespace SpmManagement._Repositories
                     {
                         var clientModel = new ClientsModel();
                         clientModel.Id = (int)reader[0];
-                        clientModel.Name = reader[1].ToString();
+                        clientModel.CName = reader[1].ToString();
                         clientModel.Email = reader[2].ToString();
                         clientModel.Mobile = reader[3].ToString();
                         clientModel.City = reader[4].ToString();

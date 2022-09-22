@@ -51,27 +51,87 @@ namespace SpmManagement.Presenters
 
         private void CancelAction(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            CleanviewFields();
         }
 
         private void SaveClient(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var model = new ClientsModel();
+            //model.Id = Convert.ToInt32(view.Id);
+            model.CName = view.CName;
+            model.Email = view.Email;
+            model.Mobile = view.Mobile;
+            model.City = view.City;
+            model.State = view.State;
+            model.Country = view.Country;
+            try
+            {
+                new Common.ModelDataValidation().Validate(model);
+                if (view.IsEdit)
+                {
+                    repository.Edit(model);
+                    view.Message = "Client edited successfully";
+                }
+                else
+                {
+                    repository.Add(model);
+                    view.Message = "Client added successfully";
+                }
+                view.IsSuccessful = true;
+                LoadAllClientList();
+                CleanviewFields();
+            }
+            catch(Exception ex)
+            {
+                view.IsSuccessful = false;
+                view.Message = ex.Message;
+            }
+        }
+
+        private void CleanviewFields()
+        {
+            view.Id = "0";
+            view.CName = "";
+            view.Email = "";
+            view.Mobile = "";
+            view.City = "";
+            view.State = "";
+            view.Country = "";
         }
 
         private void DeleteSelectedClient(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var client = (ClientsModel)clientsBindingSource.Current;
+                repository.Delete(client.Id);
+                view.IsSuccessful = true;
+                view.Message = "Client deleted successfully";
+                LoadAllClientList();
+            }
+            catch (Exception ex)
+            {
+                view.IsSuccessful = false;
+                view.Message = "An error occured, could not delete client";   
+            }
         }
 
         private void LoadSelectedClientToEdit(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var client = (ClientsModel)clientsBindingSource.Current;
+            view.Id = client.Id.ToString();
+            view.CName = client.CName.ToString();
+            view.Email = client.Email.ToString();
+            view.Mobile = client.Mobile.ToString();
+            view.City = client.City.ToString();
+            view.State = client.State.ToString();
+            view.Country= client.Country.ToString();
+            view.IsEdit = true;
         }
 
         private void AddNewClient(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            view.IsEdit = false;
         }
 
         private void SearchClient(object sender, EventArgs e)
