@@ -55,17 +55,15 @@ namespace SpmManagement._Repositories
             {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = "update clients Set cname='"+clientsModel.CName+ "', email='" + clientsModel.Email + "', mobile='" + clientsModel.Mobile + "',city = '"+clientsModel.City+ "', " +
-                    "state ='" + clientsModel.State + "', country='" + clientsModel.Country + "' where clientid='" + clientsModel.Id + "'";
-
-
-                //command.Parameters.Add("@id", SqlDbType.Int).Value = clientsModel.Id;
-                //command.Parameters.Add("@name", SqlDbType.VarChar).Value = clientsModel.CName;
-                //command.Parameters.Add("@email", SqlDbType.VarChar).Value = clientsModel.Email;
-                //command.Parameters.Add("@mobile", SqlDbType.VarChar).Value = clientsModel.Mobile;
-                //command.Parameters.Add("@city", SqlDbType.VarChar).Value = clientsModel.City;
-                //command.Parameters.Add("@state", SqlDbType.VarChar).Value = clientsModel.State;
-                //command.Parameters.Add("@country", SqlDbType.VarChar).Value = clientsModel.Country;
+                command.CommandText = @"update clients Set cname=@name, email=@email, mobile=@mobile, 
+                                      city=@city, state=@state, country=@country where clientid=@id";
+                command.Parameters.Add("@id", SqlDbType.Int).Value =  clientsModel.Id;
+                command.Parameters.Add("@name", SqlDbType.VarChar).Value = clientsModel.CName;
+                command.Parameters.Add("@email", SqlDbType.VarChar).Value = clientsModel.Email;
+                command.Parameters.Add("@mobile", SqlDbType.VarChar).Value = clientsModel.Mobile;
+                command.Parameters.Add("@city", SqlDbType.VarChar).SqlValue = clientsModel.City;
+                command.Parameters.Add("@state", SqlDbType.VarChar).Value = clientsModel.State;
+                command.Parameters.Add("@country", SqlDbType.VarChar).Value = clientsModel.Country;
                 command.ExecuteNonQuery();
             }
         }
@@ -111,7 +109,7 @@ namespace SpmManagement._Repositories
                 connection.Open();
                 command.Connection = connection;
                 command.CommandText = @"Select *From Clients 
-                                      where clientid = @id or c_name like @name+'%' 
+                                      where clientid = @id or cname like @name+'%' 
                                       order by clientid desc";
                 command.Parameters.Add("@id", SqlDbType.Int).Value = CId;
                 command.Parameters.Add("@name", SqlDbType.VarChar).Value = CName;
