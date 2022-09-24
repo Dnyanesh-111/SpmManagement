@@ -31,11 +31,13 @@ namespace SpmManagement.Views
         {
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnClients = new System.Windows.Forms.Button();
+            this.btnRequirements = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnRequirements);
             this.panel2.Controls.Add(this.btnClients);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
@@ -52,6 +54,15 @@ namespace SpmManagement.Views
             this.btnClients.Text = "Clients";
             this.btnClients.UseVisualStyleBackColor = true;
             // 
+            // btnRequirements
+            // 
+            this.btnRequirements.Location = new System.Drawing.Point(0, 147);
+            this.btnRequirements.Name = "btnRequirements";
+            this.btnRequirements.Size = new System.Drawing.Size(197, 50);
+            this.btnRequirements.TabIndex = 1;
+            this.btnRequirements.Text = "Requirements";
+            this.btnRequirements.UseVisualStyleBackColor = true;
+            // 
             // MainView
             // 
             this.ClientSize = new System.Drawing.Size(977, 566);
@@ -66,5 +77,6 @@ namespace SpmManagement.Views
         #endregion
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnClients;
+        private System.Windows.Forms.Button btnRequirements;
     }
 }

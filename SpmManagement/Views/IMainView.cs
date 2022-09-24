@@ -9,6 +9,7 @@ namespace SpmManagement.Views
      public   interface IMainView
     {
         event EventHandler ShowClientView;
+        event EventHandler ShowRequirementView;
         event EventHandler ShowProjectView;
         event EventHandler ShowTaskView;
         event EventHandler ShowTeamView;

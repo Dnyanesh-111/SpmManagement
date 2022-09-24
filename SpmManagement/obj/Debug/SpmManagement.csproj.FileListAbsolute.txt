@@ -9,3 +9,5 @@ C:\Users\care\source\repos\SpmManagement\SpmManagement\bin\Debug\SpmManagement.p
 C:\Users\care\source\repos\SpmManagement\SpmManagement\obj\Debug\SpmManagement.exe
 C:\Users\care\source\repos\SpmManagement\SpmManagement\obj\Debug\SpmManagement.pdb
 C:\Users\care\source\repos\SpmManagement\SpmManagement\obj\Debug\SpmManagement.Views.MainView.resources
+C:\Users\care\source\repos\SpmManagement\SpmManagement\obj\Debug\SpmManagement.Views.RequirementView.resources
+C:\Users\care\source\repos\SpmManagement\SpmManagement\obj\Debug\SpmManagement.Views.ProjectView.resources

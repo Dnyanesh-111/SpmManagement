@@ -19,6 +19,14 @@ namespace SpmManagement.Presenters
             this.mainView = mainView;
             this.sqlConnectionString = sqlConnectionString;
             this.mainView.ShowClientView += ShowClientsView;
+            this.mainView.ShowRequirementView += ShowRequirementView;
+        }
+
+        private void ShowRequirementView(object sender, EventArgs e)
+        {
+            IRequirementView view = RequirementView.GetInstance((MainView)mainView);
+            IRequirementRepository repository = new RequirementRepository(sqlConnectionString);
+            new RequirementPresenter(view, repository);
         }
 
         private void ShowClientsView(object sender, EventArgs e)

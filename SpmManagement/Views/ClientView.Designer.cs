@@ -29,7 +29,6 @@ namespace SpmManagement.Views
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
@@ -59,18 +58,11 @@ namespace SpmManagement.Views
             this.label4 = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.spmSystemDataSet = new SpmManagement.SpmSystemDataSet();
-            this.clientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.clientsTableAdapter = new SpmManagement.SpmSystemDataSetTableAdapters.clientsTableAdapter();
-            this.iClientsViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spmSystemDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iClientsViewBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -104,7 +96,6 @@ namespace SpmManagement.Views
             this.btnClose.TabIndex = 7;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.button1_Click);
             // 
             // tabControl1
             // 
@@ -395,24 +386,6 @@ namespace SpmManagement.Views
             this.label3.TabIndex = 2;
             this.label3.Text = "Client ID:";
             // 
-            // spmSystemDataSet
-            // 
-            this.spmSystemDataSet.DataSetName = "SpmSystemDataSet";
-            this.spmSystemDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // clientsBindingSource
-            // 
-            this.clientsBindingSource.DataMember = "clients";
-            this.clientsBindingSource.DataSource = this.spmSystemDataSet;
-            // 
-            // clientsTableAdapter
-            // 
-            this.clientsTableAdapter.ClearBeforeFill = true;
-            // 
-            // iClientsViewBindingSource
-            // 
-            this.iClientsViewBindingSource.DataSource = typeof(SpmManagement.Views.IClientsView);
-            // 
             // ClientView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -430,9 +403,6 @@ namespace SpmManagement.Views
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spmSystemDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iClientsViewBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -467,10 +437,6 @@ namespace SpmManagement.Views
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.BindingSource iClientsViewBindingSource;
-        private SpmSystemDataSet spmSystemDataSet;
-        private System.Windows.Forms.BindingSource clientsBindingSource;
-        private SpmSystemDataSetTableAdapters.clientsTableAdapter clientsTableAdapter;
         private System.Windows.Forms.Button btnClose;
     }
 }

@@ -28,7 +28,7 @@
 		}
 
 		[DisplayName("Mobile Number")]
-		[Required(ErrorMessage = "Client email is required")]
+		[Required(ErrorMessage = "Client Mobile is required")]
 		[StringLength(50, ErrorMessage = "Client name must be between 3 and 50 characters")]
 		[RegularExpression(@"^\$?\d+(\.(\d{2}))?$",ErrorMessage ="Please enter valid mobile number")]
 		public string Mobile 

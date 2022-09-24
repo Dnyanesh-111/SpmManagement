@@ -8,8 +8,8 @@ namespace SpmManagement.Models
 {
     public interface IRequirementRepository
     {
-        void Add(RequirementModel RequirementModel);
-        void Edit(RequirementModel RequirementModel);
+        void Add(RequirementModel requirementModel);
+        void Edit(RequirementModel requirementModel);
         void Delete(int id);
         IEnumerable<RequirementModel> GetAll();
         IEnumerable<RequirementModel> GetByValue(string value);//Search

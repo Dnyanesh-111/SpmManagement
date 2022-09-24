@@ -16,10 +16,12 @@ namespace SpmManagement.Views
         {
             InitializeComponent();
             btnClients.Click += delegate { ShowClientView?.Invoke(this, EventArgs.Empty); };
+            btnRequirements.Click += delegate { ShowRequirementView?.Invoke(this, EventArgs.Empty); };
 
         }
 
         public event EventHandler ShowClientView;
+        public event EventHandler ShowRequirementView;
         public event EventHandler ShowProjectView;
         public event EventHandler ShowTaskView;
         public event EventHandler ShowTeamView;

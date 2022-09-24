@@ -57,7 +57,7 @@ namespace SpmManagement.Presenters
         private void SaveClient(object sender, EventArgs e)
         {
             var model = new ClientsModel();
-            //model.Id = Convert.ToInt32(view.Id);
+            model.Id = Convert.ToInt32(view.Id);
             model.CName = view.CName;
             model.Email = view.Email;
             model.Mobile = view.Mobile;
