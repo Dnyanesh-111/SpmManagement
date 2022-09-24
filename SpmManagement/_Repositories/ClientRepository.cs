@@ -109,10 +109,10 @@ namespace SpmManagement._Repositories
                 connection.Open();
                 command.Connection = connection;
                 command.CommandText = @"Select *From Clients 
-                                      where clientid = @id or cname like @name+'%' 
+                                      where clientid = @id
                                       order by clientid desc";
                 command.Parameters.Add("@id", SqlDbType.Int).Value = CId;
-                command.Parameters.Add("@name", SqlDbType.VarChar).Value = CName;
+                //command.Parameters.Add("@name", SqlDbType.VarChar).Value = CName;
                 using (var reader = command.ExecuteReader())
                 {
                     while (reader.Read())

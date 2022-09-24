@@ -50,6 +50,8 @@
   <ItemGroup>
     <Compile Include="Models\ClientsModel.cs" />
     <Compile Include="Models\IClientsRepository.cs" />
+    <Compile Include="Models\IRequirementRepository.cs" />
+    <Compile Include="Models\RequirementModel.cs" />
     <Compile Include="Presenters\ClientPresenter.cs" />
     <Compile Include="Presenters\Common\ModelDataValidation.cs" />
     <Compile Include="Presenters\MainPresenter.cs" />
@@ -76,6 +78,7 @@
     </Compile>
     <Compile Include="_Repositories\BaseRepository.cs" />
     <Compile Include="_Repositories\ClientRepository.cs" />
+    <Compile Include="_Repositories\RequirementRepository.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
