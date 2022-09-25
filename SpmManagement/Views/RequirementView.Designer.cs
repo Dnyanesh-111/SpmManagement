@@ -160,14 +160,14 @@ namespace SpmManagement.Views
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1031, 53);
+            this.panel1.Size = new System.Drawing.Size(1038, 53);
             this.panel1.TabIndex = 3;
             // 
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(983, 11);
+            this.btnClose.Location = new System.Drawing.Point(990, 11);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(36, 34);
             this.btnClose.TabIndex = 7;
@@ -192,7 +192,7 @@ namespace SpmManagement.Views
             this.tabControl1.Location = new System.Drawing.Point(0, 53);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1031, 639);
+            this.tabControl1.Size = new System.Drawing.Size(1038, 639);
             this.tabControl1.TabIndex = 4;
             // 
             // requirementList
@@ -208,7 +208,7 @@ namespace SpmManagement.Views
             this.requirementList.Location = new System.Drawing.Point(4, 25);
             this.requirementList.Name = "requirementList";
             this.requirementList.Padding = new System.Windows.Forms.Padding(3);
-            this.requirementList.Size = new System.Drawing.Size(1023, 610);
+            this.requirementList.Size = new System.Drawing.Size(1030, 610);
             this.requirementList.TabIndex = 0;
             this.requirementList.Text = "Requirement List";
             this.requirementList.UseVisualStyleBackColor = true;
@@ -217,7 +217,7 @@ namespace SpmManagement.Views
             // 
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(882, 174);
+            this.btnDelete.Location = new System.Drawing.Point(889, 174);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(118, 34);
             this.btnDelete.TabIndex = 6;
@@ -228,7 +228,7 @@ namespace SpmManagement.Views
             // 
             this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEdit.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.Location = new System.Drawing.Point(882, 134);
+            this.btnEdit.Location = new System.Drawing.Point(889, 134);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(118, 34);
             this.btnEdit.TabIndex = 5;
@@ -239,7 +239,7 @@ namespace SpmManagement.Views
             // 
             this.btnAddNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddNew.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddNew.Location = new System.Drawing.Point(882, 94);
+            this.btnAddNew.Location = new System.Drawing.Point(889, 94);
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(118, 34);
             this.btnAddNew.TabIndex = 4;
@@ -254,11 +254,11 @@ namespace SpmManagement.Views
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 83);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 72);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(837, 498);
+            this.dataGridView1.Size = new System.Drawing.Size(860, 530);
             this.dataGridView1.TabIndex = 3;
             // 
             // btnSearch
@@ -297,7 +297,7 @@ namespace SpmManagement.Views
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1031, 692);
+            this.ClientSize = new System.Drawing.Size(1038, 692);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
             this.Name = "RequirementView";

@@ -54,6 +54,7 @@
     <Compile Include="Models\IRequirementRepository.cs" />
     <Compile Include="Models\ProjectModel.cs" />
     <Compile Include="Models\RequirementModel.cs" />
+    <Compile Include="Models\TaskModel.cs" />
     <Compile Include="Presenters\ClientPresenter.cs" />
     <Compile Include="Presenters\Common\ModelDataValidation.cs" />
     <Compile Include="Presenters\MainPresenter.cs" />

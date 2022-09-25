@@ -59,7 +59,7 @@
 
 		[DisplayName("Country")]
 		[Required(ErrorMessage = "Client country is required")]
-		[StringLength(50, MinimumLength = 4, ErrorMessage = "Client contry must be between 4 and 50 characters")]
+		[StringLength(50, MinimumLength = 4, ErrorMessage = "Client country must be between 4 and 50 characters")]
 		[RegularExpression("^[A-Za-z]+$")]
 		public string Country 
 		{ 
