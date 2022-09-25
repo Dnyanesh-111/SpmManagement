@@ -20,6 +20,7 @@ namespace SpmManagement.Presenters
             this.sqlConnectionString = sqlConnectionString;
             this.mainView.ShowClientView += ShowClientsView;
             this.mainView.ShowRequirementView += ShowRequirementView;
+            this.mainView.ShowProjectView += ShowProjectView;
         }
 
         private void ShowRequirementView(object sender, EventArgs e)
@@ -34,6 +35,12 @@ namespace SpmManagement.Presenters
             IClientsView view = ClientView.GetInstance((MainView)mainView);
             IClientsRepository repository = new ClientRepository(sqlConnectionString);
             new ClientPresenter(view, repository);
+        } 
+        private void ShowProjectView(object sender, EventArgs e)
+        {
+            IProjectView view = ProjectView.GetInstance((MainView)mainView);
+            IProjectRepository repository = new ProjectRepository(sqlConnectionString);
+            new ProjectPresenter(view, repository);
         }
     }
 }

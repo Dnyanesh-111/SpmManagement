@@ -18,7 +18,7 @@ namespace SpmManagement.Models
         private string team;
         private int cost;
         private string sdate;
-        private string cdtae;
+        private string cdate;
         private string status;
 
         //Properties - Validation
@@ -41,7 +41,7 @@ namespace SpmManagement.Models
 
         [DisplayName("Client")]
         [Required(ErrorMessage = "Client name is required")]
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "Client name must be between 3 and 50 characters")]
+        [StringLength(50, MinimumLength = 1, ErrorMessage = "Client name must be between 3 and 50 characters")]
         public string Client 
         { 
             get => client; 
@@ -83,10 +83,10 @@ namespace SpmManagement.Models
 
         [DisplayName("Completion Date")]
         [Required(ErrorMessage = "Completion date is required")]
-        public string Cdtae 
+        public string Cdate
         { 
-            get => cdtae; 
-            set => cdtae = value; 
+            get => cdate; 
+            set => cdate = value; 
         }
 
         [DisplayName("Status")]

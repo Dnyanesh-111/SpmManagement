@@ -57,6 +57,7 @@
     <Compile Include="Presenters\ClientPresenter.cs" />
     <Compile Include="Presenters\Common\ModelDataValidation.cs" />
     <Compile Include="Presenters\MainPresenter.cs" />
+    <Compile Include="Presenters\ProjectPresenter.cs" />
     <Compile Include="Presenters\RequirementPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -90,6 +91,7 @@
     </Compile>
     <Compile Include="_Repositories\BaseRepository.cs" />
     <Compile Include="_Repositories\ClientRepository.cs" />
+    <Compile Include="_Repositories\ProjectRepository.cs" />
     <Compile Include="_Repositories\RequirementRepository.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -135,6 +137,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

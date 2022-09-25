@@ -17,7 +17,7 @@ namespace SpmManagement.Views
         string Team { get; set; }
         string Cost { get; set; }
         string Sdate { get; set; }
-        string Edate { get; set; }
+        string Cdate { get; set; }
         string Status { get; set; }
 
         string SearchValue { get; set; }

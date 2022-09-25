@@ -153,7 +153,5 @@ namespace SpmManagement.Views
             }
             return instance;
         }
-
-       
     }
 }

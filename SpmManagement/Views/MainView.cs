@@ -17,6 +17,7 @@ namespace SpmManagement.Views
             InitializeComponent();
             btnClients.Click += delegate { ShowClientView?.Invoke(this, EventArgs.Empty); };
             btnRequirements.Click += delegate { ShowRequirementView?.Invoke(this, EventArgs.Empty); };
+            btnProjects.Click += delegate { ShowProjectView?.Invoke(this, EventArgs.Empty); };
 
         }
 
