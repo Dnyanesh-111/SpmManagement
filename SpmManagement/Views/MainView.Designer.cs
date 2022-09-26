@@ -30,14 +30,17 @@ namespace SpmManagement.Views
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnProjects = new System.Windows.Forms.Button();
             this.btnRequirements = new System.Windows.Forms.Button();
             this.btnClients = new System.Windows.Forms.Button();
-            this.btnProjects = new System.Windows.Forms.Button();
+            this.btnTasks = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(32)))), ((int)(((byte)(60)))));
+            this.panel2.Controls.Add(this.btnTasks);
             this.panel2.Controls.Add(this.btnProjects);
             this.panel2.Controls.Add(this.btnRequirements);
             this.panel2.Controls.Add(this.btnClients);
@@ -46,6 +49,15 @@ namespace SpmManagement.Views
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(200, 566);
             this.panel2.TabIndex = 0;
+            // 
+            // btnProjects
+            // 
+            this.btnProjects.Location = new System.Drawing.Point(0, 203);
+            this.btnProjects.Name = "btnProjects";
+            this.btnProjects.Size = new System.Drawing.Size(197, 50);
+            this.btnProjects.TabIndex = 2;
+            this.btnProjects.Text = "Projects";
+            this.btnProjects.UseVisualStyleBackColor = true;
             // 
             // btnRequirements
             // 
@@ -65,17 +77,18 @@ namespace SpmManagement.Views
             this.btnClients.Text = "Clients";
             this.btnClients.UseVisualStyleBackColor = true;
             // 
-            // btnProjects
+            // btnTasks
             // 
-            this.btnProjects.Location = new System.Drawing.Point(0, 203);
-            this.btnProjects.Name = "btnProjects";
-            this.btnProjects.Size = new System.Drawing.Size(197, 50);
-            this.btnProjects.TabIndex = 2;
-            this.btnProjects.Text = "Projects";
-            this.btnProjects.UseVisualStyleBackColor = true;
+            this.btnTasks.Location = new System.Drawing.Point(3, 259);
+            this.btnTasks.Name = "btnTasks";
+            this.btnTasks.Size = new System.Drawing.Size(197, 50);
+            this.btnTasks.TabIndex = 3;
+            this.btnTasks.Text = "Tasks";
+            this.btnTasks.UseVisualStyleBackColor = true;
             // 
             // MainView
             // 
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(977, 566);
             this.Controls.Add(this.panel2);
             this.IsMdiContainer = true;
@@ -90,5 +103,6 @@ namespace SpmManagement.Views
         private System.Windows.Forms.Button btnClients;
         private System.Windows.Forms.Button btnRequirements;
         private System.Windows.Forms.Button btnProjects;
+        private System.Windows.Forms.Button btnTasks;
     }
 }

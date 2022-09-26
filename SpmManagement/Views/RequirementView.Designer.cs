@@ -46,10 +46,10 @@ namespace SpmManagement.Views
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnAddNew = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.RequirementEdit.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -91,7 +91,7 @@ namespace SpmManagement.Views
             this.RequirementEdit.Location = new System.Drawing.Point(4, 25);
             this.RequirementEdit.Name = "RequirementEdit";
             this.RequirementEdit.Padding = new System.Windows.Forms.Padding(3);
-            this.RequirementEdit.Size = new System.Drawing.Size(1023, 610);
+            this.RequirementEdit.Size = new System.Drawing.Size(1030, 610);
             this.RequirementEdit.TabIndex = 1;
             this.RequirementEdit.Text = "Edit Requirement";
             this.RequirementEdit.UseVisualStyleBackColor = true;
@@ -197,10 +197,10 @@ namespace SpmManagement.Views
             // 
             // requirementList
             // 
+            this.requirementList.Controls.Add(this.dataGridView1);
             this.requirementList.Controls.Add(this.btnDelete);
             this.requirementList.Controls.Add(this.btnEdit);
             this.requirementList.Controls.Add(this.btnAddNew);
-            this.requirementList.Controls.Add(this.dataGridView1);
             this.requirementList.Controls.Add(this.btnSearch);
             this.requirementList.Controls.Add(this.txtSearch);
             this.requirementList.Controls.Add(this.label2);
@@ -246,21 +246,6 @@ namespace SpmManagement.Views
             this.btnAddNew.Text = "Add New";
             this.btnAddNew.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 72);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(860, 530);
-            this.dataGridView1.TabIndex = 3;
-            // 
             // btnSearch
             // 
             this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -292,6 +277,21 @@ namespace SpmManagement.Views
             this.label2.Size = new System.Drawing.Size(190, 28);
             this.label2.TabIndex = 0;
             this.label2.Text = "Search Requirement:";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 72);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(865, 535);
+            this.dataGridView1.TabIndex = 7;
             // 
             // RequirementView
             // 
@@ -331,10 +331,10 @@ namespace SpmManagement.Views
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnAddNew;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox txtClient;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

@@ -11,3 +11,4 @@ C:\Users\care\source\repos\SpmManagement\SpmManagement\obj\Debug\SpmManagement.p
 C:\Users\care\source\repos\SpmManagement\SpmManagement\obj\Debug\SpmManagement.Views.MainView.resources
 C:\Users\care\source\repos\SpmManagement\SpmManagement\obj\Debug\SpmManagement.Views.RequirementView.resources
 C:\Users\care\source\repos\SpmManagement\SpmManagement\obj\Debug\SpmManagement.Views.ProjectView.resources
+C:\Users\care\source\repos\SpmManagement\SpmManagement\obj\Debug\SpmManagement.Views.TaskView.resources
