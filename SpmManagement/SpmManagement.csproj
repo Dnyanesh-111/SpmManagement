@@ -151,6 +151,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Views\ClientView.resx">
       <DependentUpon>ClientView.cs</DependentUpon>
@@ -193,6 +194,33 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-speed-36%28-hdpi%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-requirement-36%28-hdpi%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-client-management-36%28-hdpi%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-group-of-projects-36%28-hdpi%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-task-36%28-hdpi%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-stack-of-money-36%28-hdpi%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-document-36%28-hdpi%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-dashboard-layout-36%28-hdpi%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-dashboard-layout-24%28-mdpi%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

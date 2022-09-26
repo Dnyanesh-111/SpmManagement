@@ -18,7 +18,7 @@ namespace SpmManagement.Views
             btnClients.Click += delegate { ShowClientView?.Invoke(this, EventArgs.Empty); };
             btnRequirements.Click += delegate { ShowRequirementView?.Invoke(this, EventArgs.Empty); };
             btnProjects.Click += delegate { ShowProjectView?.Invoke(this, EventArgs.Empty); };
-            d.Click += delegate { ShowTaskView?.Invoke(this, EventArgs.Empty); };
+            btnTasks.Click += delegate { ShowTaskView?.Invoke(this, EventArgs.Empty); };
 
         }
 
@@ -28,6 +28,6 @@ namespace SpmManagement.Views
         public event EventHandler ShowTaskView;
         public event EventHandler ShowTeamView;
 
-        
+       
     }
 }
