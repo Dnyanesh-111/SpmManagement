@@ -22,7 +22,10 @@ namespace SpmManagement.Presenters
             this.mainView.ShowRequirementView += ShowRequirementView;
             this.mainView.ShowProjectView += ShowProjectView;
             this.mainView.ShowTaskView += ShowTaskView;
+           
         }
+
+        
 
         private void ShowRequirementView(object sender, EventArgs e)
         {

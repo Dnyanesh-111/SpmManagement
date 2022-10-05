@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="ExCSS, Version=4.1.4.0, Culture=neutral, PublicKeyToken=bdbe16be9b936b9a, processorArchitecture=MSIL">
       <HintPath>..\packages\ExCSS.4.1.4\lib\net452\ExCSS.dll</HintPath>
     </Reference>
@@ -74,6 +78,7 @@
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -95,6 +100,12 @@
     <Compile Include="Models\ProjectModel.cs" />
     <Compile Include="Models\RequirementModel.cs" />
     <Compile Include="Models\TaskModel.cs" />
+    <Compile Include="Reports\ClientReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClientReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Presenters\ClientPresenter.cs" />
     <Compile Include="Presenters\Common\ModelDataValidation.cs" />
     <Compile Include="Presenters\MainPresenter.cs" />
@@ -126,6 +137,12 @@
     <Compile Include="Views\ProjectView.Designer.cs">
       <DependentUpon>ProjectView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ReportView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ReportView.Designer.cs">
+      <DependentUpon>ReportView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\RequirementView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +160,10 @@
     <Compile Include="_Repositories\ProjectRepository.cs" />
     <Compile Include="_Repositories\RequirementRepository.cs" />
     <Compile Include="_Repositories\TaskRepository.cs" />
+    <EmbeddedResource Include="Reports\ClientReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ClientReport.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -161,6 +182,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ProjectView.resx">
       <DependentUpon>ProjectView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ReportView.resx">
+      <DependentUpon>ReportView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\RequirementView.resx">
       <DependentUpon>RequirementView.cs</DependentUpon>
@@ -221,6 +245,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-dashboard-layout-24%28-mdpi%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

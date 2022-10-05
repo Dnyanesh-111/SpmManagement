@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SpmManagement.Views
@@ -27,7 +20,7 @@ namespace SpmManagement.Views
         }
 
         private void AssociateAndRaiseViewEvents()
-        {   
+        {
             //Search
             btnSearch.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
             txtSearch.KeyDown += (s, e) =>
@@ -66,17 +59,17 @@ namespace SpmManagement.Views
             btnCancel.Click += delegate
             {
                 CancelEvent?.Invoke(this, EventArgs.Empty);
-                    tabControl1.TabPages.Remove(tabPage2);
-                    tabControl1.TabPages.Add(tabPage1);
-            
+                tabControl1.TabPages.Remove(tabPage2);
+                tabControl1.TabPages.Add(tabPage1);
+
             };
             //Delete Event
             btnDelete.Click += delegate
             {
-                var result=  MessageBox.Show("Are you sure you want to delete the selected client?","Warning",
-                    MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+                var result = MessageBox.Show("Are you sure you want to delete the selected client?", "Warning",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                if(result == DialogResult.Yes)
+                if (result == DialogResult.Yes)
                 {
                     DeleteEvent?.Invoke(this, EventArgs.Empty);
                     MessageBox.Show(Message);
@@ -85,49 +78,60 @@ namespace SpmManagement.Views
         }
 
         //Properties
-        public string Id {
-            get => txtId.Text; 
-            set => txtId.Text = value; 
+        public string Id
+        {
+            get => txtId.Text;
+            set => txtId.Text = value;
         }
         public new string CName
         {
-            get => txtName.Text; 
-            set => txtName.Text = value; 
-        }public string Email {
-            get => txtEmail.Text; 
-            set => txtEmail.Text = value; 
+            get => txtName.Text;
+            set => txtName.Text = value;
         }
-        public string Mobile {
-            get => txtMobile.Text; 
-            set => txtMobile.Text = value; 
+        public string Email
+        {
+            get => txtEmail.Text;
+            set => txtEmail.Text = value;
         }
-        public string City {
-            get => txtCity.Text; 
-            set => txtCity.Text = value; 
+        public string Mobile
+        {
+            get => txtMobile.Text;
+            set => txtMobile.Text = value;
         }
-        public string State {
-            get => txtState.Text; 
-            set => txtState.Text = value; 
+        public string City
+        {
+            get => txtCity.Text;
+            set => txtCity.Text = value;
         }
-        public string Country {
-            get => txtCountry.Text; 
-            set => txtCountry.Text = value; 
+        public string State
+        {
+            get => txtState.Text;
+            set => txtState.Text = value;
         }
-        public string SearchValue {
-            get => txtSearch.Text; 
-            set => txtSearch.Text = value; 
+        public string Country
+        {
+            get => txtCountry.Text;
+            set => txtCountry.Text = value;
         }
-        public bool IsEdit {
-            get => isEdit; 
-            set => isEdit = value; 
+        public string SearchValue
+        {
+            get => txtSearch.Text;
+            set => txtSearch.Text = value;
         }
-        public bool IsSuccessful {
-            get => isSuccessful; 
-            set => isSuccessful = value; 
+        public bool IsEdit
+        {
+            get => isEdit;
+            set => isEdit = value;
         }
-        public string Message {
-            get => message; 
-            set => message = value; 
+        public bool IsSuccessful
+        {
+            get => isSuccessful;
+            set => isSuccessful = value;
+        }
+        public string Message
+        {
+            get => message;
+            set => message = value;
         }
 
         //Events

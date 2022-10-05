@@ -12,6 +12,5 @@ namespace SpmManagement.Views
         event EventHandler ShowRequirementView;
         event EventHandler ShowProjectView;
         event EventHandler ShowTaskView;
-        event EventHandler ShowTeamView;
     }
 }

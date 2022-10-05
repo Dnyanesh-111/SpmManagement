@@ -133,6 +133,7 @@ namespace SpmManagement.Presenters
         private void AddNewClient(object sender, EventArgs e)
         {
             view.IsEdit = false;
+            CleanviewFields();
         }
 
         private void SearchClient(object sender, EventArgs e)

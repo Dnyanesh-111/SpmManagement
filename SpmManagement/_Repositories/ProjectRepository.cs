@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using SpmManagement.Models;
 
 namespace SpmManagement._Repositories
@@ -25,15 +26,15 @@ namespace SpmManagement._Repositories
                 connection.Open();
                 command.Connection = connection;
                 command.CommandText = @"insert into projects (name,client,requirements,cost,sdate,cdate,team,status)
-                                       values(@name,@client,@requirement,@cost,@sdate,@cdate,@team,@status)";
-                command.Parameters.Add("@name", SqlDbType.VarChar).Value = projectModel.Name;
+                                       values(@pname,@client,@requirement,@cost,@sdate,@cdate,@team,@status)";
+                command.Parameters.Add("@pname", SqlDbType.VarChar).Value = projectModel.PName;
                 command.Parameters.Add("@client", SqlDbType.VarChar).Value = projectModel.Client;
                 command.Parameters.Add("@requirement", SqlDbType.VarChar).Value = projectModel.Requirements;
-                command.Parameters.Add("@cost", SqlDbType.VarChar).Value = projectModel.Cost;
+                command.Parameters.Add("@cost", SqlDbType.Int).Value = projectModel.Cost;
                 command.Parameters.Add("@sdate", SqlDbType.VarChar).Value = projectModel.Sdate;
                 command.Parameters.Add("@cdate", SqlDbType.VarChar).Value = projectModel.Cdate;
                 command.Parameters.Add("@team", SqlDbType.VarChar).Value = projectModel.Team;
-                command.Parameters.Add("@satus", SqlDbType.VarChar).Value = projectModel.Status;
+                command.Parameters.Add("@status", SqlDbType.VarChar).Value = projectModel.Status;
                 command.ExecuteNonQuery();
             }
         }
@@ -50,7 +51,7 @@ namespace SpmManagement._Repositories
                 command.ExecuteNonQuery();
             }
         }
-
+        
         public void Edit(ProjectModel projectModel)
         {
             using (var connection = new SqlConnection(connectionString))
@@ -61,8 +62,8 @@ namespace SpmManagement._Repositories
                 command.CommandText = @"update projects Set name=@name,client=@client,requirements=@requirement,
                                       cost=@cost,sdate=@sdate,cdate=@cdate,team=@team,status=@status where id=@id";
                 command.Parameters.Add("@id", SqlDbType.Int).Value = projectModel.Id;
-                command.Parameters.Add("@name", SqlDbType.VarChar).Value = projectModel.Name;
-                command.Parameters.Add("@client", SqlDbType.Int).Value = projectModel.Client;
+                command.Parameters.Add("@name", SqlDbType.VarChar).Value = projectModel.PName;
+                command.Parameters.Add("@client", SqlDbType.VarChar).Value = projectModel.Client;
                 command.Parameters.Add("@requirement", SqlDbType.VarChar).Value = projectModel.Requirements;
                 command.Parameters.Add("@cost", SqlDbType.Int).Value = projectModel.Cost;
                 command.Parameters.Add("@sdate", SqlDbType.VarChar).Value = projectModel.Sdate;
@@ -88,13 +89,14 @@ namespace SpmManagement._Repositories
                     {
                         var projectModel = new ProjectModel();
                         projectModel.Id = (int)reader[0];
-                        projectModel.Name = reader[1].ToString();
+                        projectModel.PName = reader[1].ToString();
                         projectModel.Client = reader[2].ToString();
                         projectModel.Requirements = reader[3].ToString();
                         projectModel.Cost = (int)reader[4];
                         projectModel.Sdate = reader[5].ToString();
                         projectModel.Cdate = reader[6].ToString();
-                        projectModel.Status = reader[6].ToString();
+                        projectModel.Team = reader[7].ToString();
+                        projectModel.Status = reader[8].ToString();
                         projectList.Add(projectModel);
                     }
                 }
@@ -123,7 +125,7 @@ namespace SpmManagement._Repositories
                     {
                         var projectModel = new ProjectModel();
                         projectModel.Id = (int)reader[0];
-                        projectModel.Name = reader[1].ToString();
+                        projectModel.PName = reader[1].ToString();
                         projectModel.Client = reader[2].ToString();
                         projectModel.Requirements = reader[3].ToString();
                         projectModel.Cost = (int)reader[4];
@@ -136,5 +138,7 @@ namespace SpmManagement._Repositories
             }
             return projectList;
         }
+
+        
     }
 }

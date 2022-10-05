@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace SpmManagement.Views
 {
@@ -16,13 +17,14 @@ namespace SpmManagement.Views
         private string message;
         private bool isSuccessful;
         private bool isEdit;
-
+        private string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=SpmSystem;Integrated Security=True";
         public TaskView()
         {
             InitializeComponent();
             AssociateAndRaiseViewEvents();
             tabControl1.TabPages.Remove(tabPage2);
             btnClose.Click += delegate { this.Close(); };
+            setProjectList();
         }
         private void AssociateAndRaiseViewEvents()
         {
@@ -154,6 +156,50 @@ namespace SpmManagement.Views
         public event EventHandler CancelEvent;
 
         //Methods
+        private void setProjectList()
+        {
+            var projectList = new List<string>();
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = "Select  name, id from projects";
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        projectList.Add(reader[0].ToString());
+                    }
+                }
+            }
+            foreach (string client in projectList)
+            {
+                txtProject.Items.Add(client);
+            }
+        }
+        private void setAssigneeList()
+        {
+            var projectList = new List<string>();
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = "select t.project, tm.member, tm.role  from teams as t join teamMembers as tm on t.teamid=tm.teamid join taskson t.project=tasks.project";
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        projectList.Add(reader[0].ToString());
+                    }
+                }
+            }
+            foreach (string client in projectList)
+            {
+                txtProject.Items.Add(client);
+            }
+        }
         public void SetTaskListBindingSource(BindingSource taskList)
         {
             dataGridView1.DataSource = taskList;

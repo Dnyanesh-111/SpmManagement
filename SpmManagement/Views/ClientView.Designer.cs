@@ -426,6 +426,7 @@ namespace SpmManagement.Views
             this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtId.Location = new System.Drawing.Point(36, 66);
             this.txtId.Name = "txtId";
+            this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(157, 30);
             this.txtId.TabIndex = 3;
             // 

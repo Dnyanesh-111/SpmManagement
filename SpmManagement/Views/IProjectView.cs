@@ -11,7 +11,7 @@ namespace SpmManagement.Views
     {
         //Properties and fields
         string Id { get; set; } 
-        string Name { get; set; }
+        string PName { get; set; }
         string Client { get; set; }
         string Requirement { get; set; }
         string Team { get; set; }
@@ -34,7 +34,8 @@ namespace SpmManagement.Views
         event EventHandler CancelEvent;
 
         //Methods 
-        void SetClientListBindingSource(BindingSource projectList);
+        void SetProjectListBindingSource(BindingSource projectList);
         void Show();//optional
+        
     }
 }

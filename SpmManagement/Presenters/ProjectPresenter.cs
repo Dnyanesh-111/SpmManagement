@@ -15,7 +15,7 @@ namespace SpmManagement.Presenters
         private IProjectRepository repository;
         private BindingSource projectBindingSource;
         private IEnumerable<ProjectModel> projectList;
-
+  
         //Constructor
         public ProjectPresenter(IProjectView view, IProjectRepository repository)
         {
@@ -31,11 +31,13 @@ namespace SpmManagement.Presenters
             this.view.SaveEvent += SaveProject;
             this.view.CancelEvent += CancelAction;
 
-            //Set Clients Binding Source
-            this.view.SetClientListBindingSource(projectBindingSource);
-
-            //Load Client List view
-            LoadAllProjectList();
+            //Set Projects Binding Source
+            this.view.SetProjectListBindingSource(projectBindingSource);
+           
+            //Load Project List view
+            LoadAllProjectList(); 
+            //Load Project List view
+          
 
             //Show View
             this.view.Show();
@@ -47,6 +49,7 @@ namespace SpmManagement.Presenters
             projectList = repository.GetAll();
             projectBindingSource.DataSource = projectList; //Set data Source
         }
+       
 
         private void CancelAction(object sender, EventArgs e)
         {
@@ -55,7 +58,7 @@ namespace SpmManagement.Presenters
         private void CleanviewFields()
         {
             view.Id = "0";
-            view.Name = "";
+            view.PName = "";
             view.Sdate = "";
             view.Client = "";
             view.Status = "";
@@ -68,13 +71,14 @@ namespace SpmManagement.Presenters
         {
             var model = new ProjectModel();
             model.Id = Convert.ToInt32(view.Id);
-            model.Name = view.Name;
+            model.PName = view.PName;
             model.Sdate = view.Sdate;
             model.Client = view.Client;
+            model.Cost = Convert.ToInt32(view.Cost);
             model.Status = view.Status;
             model.Requirements = view.Requirement;
             model.Cdate = view.Cdate;
-            model.Team = "Not Assigned";
+            model.Team = view.Team;
             try
             {
                 new Common.ModelDataValidation().Validate(model);
@@ -121,7 +125,7 @@ namespace SpmManagement.Presenters
 
             var project = (ProjectModel)projectBindingSource.Current;
             view.Id = project.Id.ToString();
-            view.Name = project.Name.ToString();
+            view.PName = project.PName.ToString();
             view.Client = project.Client.ToString();
             view.Requirement = project.Requirements.ToString();
             view.Cost = project.Cost.ToString();
@@ -134,6 +138,7 @@ namespace SpmManagement.Presenters
         private void AddNewProject(object sender, EventArgs e)
         {
             view.IsEdit = false;
+            CleanviewFields();
         }
 
         private void SearchProject(object sender, EventArgs e)

@@ -29,7 +29,6 @@ namespace SpmManagement.Views
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.button4 = new System.Windows.Forms.Button();
@@ -39,17 +38,16 @@ namespace SpmManagement.Views
             this.txtTeamMember = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtTeam = new System.Windows.Forms.TextBox();
+            this.txtTeamId = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.txtFile = new System.Windows.Forms.TextBox();
             this.txtStatus = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.btnAssignTeam = new System.Windows.Forms.Button();
-            this.txtFile = new System.Windows.Forms.Button();
             this.dateCompletion = new System.Windows.Forms.DateTimePicker();
             this.dateStart = new System.Windows.Forms.DateTimePicker();
             this.txtCname = new System.Windows.Forms.ComboBox();
-            this.clientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
@@ -78,7 +76,6 @@ namespace SpmManagement.Views
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.clientsBindingSource)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -96,24 +93,29 @@ namespace SpmManagement.Views
             this.tabPage3.Controls.Add(this.txtTeamMember);
             this.tabPage3.Controls.Add(this.label12);
             this.tabPage3.Controls.Add(this.label11);
-            this.tabPage3.Controls.Add(this.txtTeam);
+            this.tabPage3.Controls.Add(this.txtTeamId);
             this.tabPage3.Controls.Add(this.label10);
             this.tabPage3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1042, 587);
+            this.tabPage3.Size = new System.Drawing.Size(1164, 615);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Assign Team";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // dataGridView2
             // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(38, 193);
             this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 24;
             this.dataGridView2.Size = new System.Drawing.Size(877, 377);
@@ -129,6 +131,7 @@ namespace SpmManagement.Views
             this.button4.TabIndex = 14;
             this.button4.Text = "Remove";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // btnCancel2
             // 
@@ -140,6 +143,7 @@ namespace SpmManagement.Views
             this.btnCancel2.TabIndex = 13;
             this.btnCancel2.Text = "Cancel";
             this.btnCancel2.UseVisualStyleBackColor = true;
+            this.btnCancel2.Click += new System.EventHandler(this.btnCancel2_Click);
             // 
             // btnSave2
             // 
@@ -151,6 +155,7 @@ namespace SpmManagement.Views
             this.btnSave2.TabIndex = 12;
             this.btnSave2.Text = "Save";
             this.btnSave2.UseVisualStyleBackColor = true;
+            this.btnSave2.Click += new System.EventHandler(this.btnSave2_Click);
             // 
             // txtTeamRole
             // 
@@ -170,15 +175,11 @@ namespace SpmManagement.Views
             // 
             this.txtTeamMember.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTeamMember.FormattingEnabled = true;
-            this.txtTeamMember.Items.AddRange(new object[] {
-            "employee1",
-            "employee2",
-            "employee3",
-            "employee4"});
             this.txtTeamMember.Location = new System.Drawing.Point(35, 129);
             this.txtTeamMember.Name = "txtTeamMember";
             this.txtTeamMember.Size = new System.Drawing.Size(360, 31);
             this.txtTeamMember.TabIndex = 10;
+            this.txtTeamMember.Click += new System.EventHandler(this.txtTeamMember_Click);
             // 
             // label12
             // 
@@ -200,14 +201,14 @@ namespace SpmManagement.Views
             this.label11.TabIndex = 6;
             this.label11.Text = "Select Employee";
             // 
-            // txtTeam
+            // txtTeamId
             // 
-            this.txtTeam.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTeam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTeam.Location = new System.Drawing.Point(35, 49);
-            this.txtTeam.Name = "txtTeam";
-            this.txtTeam.Size = new System.Drawing.Size(157, 30);
-            this.txtTeam.TabIndex = 5;
+            this.txtTeamId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTeamId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTeamId.Location = new System.Drawing.Point(35, 49);
+            this.txtTeamId.Name = "txtTeamId";
+            this.txtTeamId.Size = new System.Drawing.Size(157, 30);
+            this.txtTeamId.TabIndex = 5;
             // 
             // label10
             // 
@@ -221,10 +222,10 @@ namespace SpmManagement.Views
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.txtFile);
             this.tabPage2.Controls.Add(this.txtStatus);
             this.tabPage2.Controls.Add(this.label13);
             this.tabPage2.Controls.Add(this.btnAssignTeam);
-            this.tabPage2.Controls.Add(this.txtFile);
             this.tabPage2.Controls.Add(this.dateCompletion);
             this.tabPage2.Controls.Add(this.dateStart);
             this.tabPage2.Controls.Add(this.txtCname);
@@ -244,10 +245,19 @@ namespace SpmManagement.Views
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1042, 587);
+            this.tabPage2.Size = new System.Drawing.Size(1164, 615);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Edit Project";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // txtFile
+            // 
+            this.txtFile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFile.Location = new System.Drawing.Point(36, 241);
+            this.txtFile.Name = "txtFile";
+            this.txtFile.Size = new System.Drawing.Size(331, 30);
+            this.txtFile.TabIndex = 25;
             // 
             // txtStatus
             // 
@@ -275,22 +285,13 @@ namespace SpmManagement.Views
             // btnAssignTeam
             // 
             this.btnAssignTeam.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAssignTeam.Location = new System.Drawing.Point(437, 498);
+            this.btnAssignTeam.Location = new System.Drawing.Point(395, 498);
             this.btnAssignTeam.Name = "btnAssignTeam";
-            this.btnAssignTeam.Size = new System.Drawing.Size(118, 34);
+            this.btnAssignTeam.Size = new System.Drawing.Size(160, 34);
             this.btnAssignTeam.TabIndex = 22;
             this.btnAssignTeam.Text = "Assign Team";
             this.btnAssignTeam.UseVisualStyleBackColor = true;
-            // 
-            // txtFile
-            // 
-            this.txtFile.Location = new System.Drawing.Point(36, 241);
-            this.txtFile.Name = "txtFile";
-            this.txtFile.Size = new System.Drawing.Size(331, 35);
-            this.txtFile.TabIndex = 21;
-            this.txtFile.Text = "Select File ";
-            this.txtFile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txtFile.UseVisualStyleBackColor = true;
+            this.btnAssignTeam.Click += new System.EventHandler(this.btnAssignTeam_Click);
             // 
             // dateCompletion
             // 
@@ -308,7 +309,6 @@ namespace SpmManagement.Views
             // 
             // txtCname
             // 
-            this.txtCname.DataSource = this.clientsBindingSource;
             this.txtCname.DisplayMember = "cname";
             this.txtCname.FormattingEnabled = true;
             this.txtCname.Location = new System.Drawing.Point(476, 145);
@@ -316,10 +316,6 @@ namespace SpmManagement.Views
             this.txtCname.Size = new System.Drawing.Size(331, 31);
             this.txtCname.TabIndex = 18;
             this.txtCname.ValueMember = "cname";
-            // 
-            // clientsBindingSource
-            // 
-            this.clientsBindingSource.DataMember = "clients";
             // 
             // btnCancel
             // 
@@ -447,7 +443,7 @@ namespace SpmManagement.Views
             this.tabControl1.Location = new System.Drawing.Point(0, 47);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1050, 616);
+            this.tabControl1.Size = new System.Drawing.Size(1172, 644);
             this.tabControl1.TabIndex = 4;
             // 
             // tabPage1
@@ -463,7 +459,7 @@ namespace SpmManagement.Views
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1042, 587);
+            this.tabPage1.Size = new System.Drawing.Size(1164, 615);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Project List";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -478,7 +474,7 @@ namespace SpmManagement.Views
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI Historic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(892, 175);
+            this.btnDelete.Location = new System.Drawing.Point(1014, 175);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(118, 34);
             this.btnDelete.TabIndex = 10;
@@ -495,7 +491,7 @@ namespace SpmManagement.Views
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Font = new System.Drawing.Font("Segoe UI Historic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.Location = new System.Drawing.Point(892, 135);
+            this.btnEdit.Location = new System.Drawing.Point(1014, 135);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(118, 34);
             this.btnEdit.TabIndex = 9;
@@ -512,7 +508,7 @@ namespace SpmManagement.Views
             this.btnAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddNew.Font = new System.Drawing.Font("Segoe UI Historic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddNew.ForeColor = System.Drawing.Color.White;
-            this.btnAddNew.Location = new System.Drawing.Point(892, 95);
+            this.btnAddNew.Location = new System.Drawing.Point(1014, 95);
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(118, 34);
             this.btnAddNew.TabIndex = 8;
@@ -548,7 +544,7 @@ namespace SpmManagement.Views
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(859, 507);
+            this.dataGridView1.Size = new System.Drawing.Size(981, 535);
             this.dataGridView1.TabIndex = 3;
             // 
             // txtSearch
@@ -582,7 +578,7 @@ namespace SpmManagement.Views
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1050, 47);
+            this.panel1.Size = new System.Drawing.Size(1172, 47);
             this.panel1.TabIndex = 5;
             // 
             // btnClose
@@ -612,7 +608,7 @@ namespace SpmManagement.Views
             this.iconPictureBox1.IconColor = System.Drawing.Color.White;
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox1.IconSize = 43;
-            this.iconPictureBox1.Location = new System.Drawing.Point(1007, 0);
+            this.iconPictureBox1.Location = new System.Drawing.Point(1129, 0);
             this.iconPictureBox1.Name = "iconPictureBox1";
             this.iconPictureBox1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.iconPictureBox1.Size = new System.Drawing.Size(43, 47);
@@ -625,7 +621,7 @@ namespace SpmManagement.Views
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(492, 9);
+            this.label1.Location = new System.Drawing.Point(553, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 28);
             this.label1.TabIndex = 0;
@@ -636,7 +632,7 @@ namespace SpmManagement.Views
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1050, 663);
+            this.ClientSize = new System.Drawing.Size(1172, 691);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
             this.Name = "ProjectView";
@@ -646,7 +642,6 @@ namespace SpmManagement.Views
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.clientsBindingSource)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -668,13 +663,12 @@ namespace SpmManagement.Views
         private System.Windows.Forms.ComboBox txtTeamMember;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtTeam;
+        private System.Windows.Forms.TextBox txtTeamId;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.ComboBox txtStatus;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button btnAssignTeam;
-        private System.Windows.Forms.Button txtFile;
         private System.Windows.Forms.DateTimePicker dateCompletion;
         private System.Windows.Forms.DateTimePicker dateStart;
         private System.Windows.Forms.ComboBox txtCname;
@@ -691,7 +685,6 @@ namespace SpmManagement.Views
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.BindingSource clientsBindingSource;
         private System.Windows.Forms.Panel panel1;
         private FontAwesome.Sharp.IconButton btnClose;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
@@ -704,5 +697,6 @@ namespace SpmManagement.Views
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtFile;
     }
 }

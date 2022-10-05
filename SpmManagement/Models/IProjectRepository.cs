@@ -12,6 +12,7 @@ namespace SpmManagement.Models
         void Edit(ProjectModel projectModel);
         void Delete(int id);
         IEnumerable<ProjectModel> GetAll();
+      
         IEnumerable<ProjectModel> GetByValue(string value);//Searchs
     }
 }

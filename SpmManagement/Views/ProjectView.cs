@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -10,12 +11,16 @@ using System.Windows.Forms;
 
 namespace SpmManagement.Views
 {
+
+
     public partial class ProjectView : Form, IProjectView
     {
         //Fields
         private string message;
         private bool isSuccessful;
         private bool isEdit;
+        private string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=SpmSystem;Integrated Security=True";
+
         public ProjectView()
         {
             InitializeComponent();
@@ -23,6 +28,8 @@ namespace SpmManagement.Views
             tabControl1.TabPages.Remove(tabPage2);
             tabControl1.TabPages.Remove(tabPage3);
             btnClose.Click += delegate { this.Close(); };
+            SetClientList();
+            SetEmployeeList();
         }
 
         private void AssociateAndRaiseViewEvents()
@@ -102,67 +109,75 @@ namespace SpmManagement.Views
         }
 
 
+
         //Properties
-        public string Id 
-        { 
-            get => txtId.Text; 
-            set => txtId.Text=value; 
+        public string Id
+        {
+            get => txtId.Text;
+            set => txtId.Text = value;
         }
-        public string Client 
-        { 
-            get => txtCname.Text; 
-            set => txtCname.Text=value; 
+        public string PName
+        {
+            get => txtName.Text ;
+            set => txtName.Text = value;
         }
-        public string Requirement 
-        { 
-            get => txtFile.Text; 
-            set => txtFile.Text=value; 
+        public string Client
+        {
+            get => txtCname.Text;
+            set => txtCname.Text = value;
         }
-        public string Team 
-        { 
-            get => txtTeam.Text; 
-            set => txtTeam.Text=value; 
+        public string Requirement
+        {
+            get => txtFile.Text;
+            set => txtFile.Text = value;
         }
-        public string Cost 
-        { 
-            get => txtCost.Text; 
-            set => txtCost.Text=value; 
+        public string Team
+        {
+            get => txtTeamId.Text;
+            set => txtTeamId.Text = value;
         }
-        public string Sdate 
-        { 
-            get => dateStart.Text; 
-            set => dateStart.Text=value; 
+        public string Cost
+        {
+            get => txtCost.Text;
+            set => txtCost.Text = value;
         }
-        public string Cdate 
-        { 
-            get => dateCompletion.Text; 
-            set => dateCompletion.Text=value; 
+        public string Sdate
+        {
+            get => dateStart.Text;
+            set => dateStart.Text = value;
+        }
+        public string Cdate
+        {
+            get => dateCompletion.Text;
+            set => dateCompletion.Text = value;
         }
 
-        public string Status 
-        { 
-            get => txtStatus.Text; 
-            set => txtStatus.Text=value; 
+        public string Status
+        {
+            get => txtStatus.Text;
+            set => txtStatus.Text = value;
         }
-        public string SearchValue 
-        { 
-            get => txtSearch.Text; 
-            set => txtSearch.Text=value; 
+        public string SearchValue
+        {
+            get => txtSearch.Text;
+            set => txtSearch.Text = value;
         }
-        public bool IsEdit 
-        { 
+        public bool IsEdit
+        {
             get => isEdit;
-            set => isEdit = value; 
+            set => isEdit = value;
         }
-        public bool IsSuccessful 
-        { 
-            get => isSuccessful; 
-            set => isSuccessful=value; 
+        public bool IsSuccessful
+        {
+            get => isSuccessful;
+            set => isSuccessful = value;
         }
-        public string Message { 
-            get => message; 
-            set => message=value; 
+        public string Message
+        {
+            get => message;
+            set => message = value;
         }
+        
 
         public event EventHandler SearchEvent;
         public event EventHandler AddNewEvent;
@@ -172,13 +187,62 @@ namespace SpmManagement.Views
         public event EventHandler CancelEvent;
         public event EventHandler AssignTeamEvent;
 
-        public void SetClientListBindingSource(BindingSource projectList)
+        public void SetProjectListBindingSource(BindingSource projectList)
         {
             dataGridView1.DataSource = projectList;
         }
 
+        public void SetClientList()
+        {
+            var clientList = new List<string>();
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = "Select cname from clients";
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        clientList.Add(reader[0].ToString());
+                    }
+                }
+            }
+            foreach (string client in clientList)
+            {
+                txtCname.Items.Add(client);
+            }
+        }
+        public void SetEmployeeList()
+        {
+            
+            var employeeList = new List<string>();
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = "Select name from TblEmp where status='Available' ";
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        employeeList.Add(reader[0].ToString());
+                    }
+                }
+            }
+            foreach (string client in employeeList)
+            {
+                txtTeamMember.Items.Add(client);
+            }
+            
+        }
+
         //Singleton Pattern (Open a single form instance)
         private static ProjectView instance;
+
+
         public static ProjectView GetInstance(Form parentContainer)
         {
             if (instance == null || instance.IsDisposed)
@@ -197,6 +261,76 @@ namespace SpmManagement.Views
             return instance;
         }
 
-     
+        //Add team members
+        private void btnSave2_Click(object sender, EventArgs e)
+        {
+            
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = "insert into team_members ( member, role) values ('" + txtTeamMember.Text + "','" + txtTeamRole.Text + "')";
+                command.ExecuteNonQuery();
+                command.CommandText = "update TblEmp set status='Not-Available' ";
+                command.ExecuteNonQuery();
+                
+            }
+            fillTeam();
+            
+        }
+        
+        //Remove Team Members
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //Show Team Members
+        private void fillTeam()
+        {
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = "select t.project, tm.member, tm.role from teams as t join teamMembers as tm on t.teamid=tm.teamid";
+                SqlDataAdapter da = new SqlDataAdapter(command);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                dataGridView2.DataSource = dt;
+            }
+        }
+
+        private void btnAssignTeam_Click(object sender, EventArgs e)
+        {
+                using (var connection = new SqlConnection(connectionString))
+                using (var command = new SqlCommand())
+                {
+                    connection.Open();
+                    command.Connection = connection;
+                    command.CommandText = "select * from teams where project ='"+Convert.ToInt32(txtId.Text)+"'";
+                    var reder= command.ExecuteReader();
+                    if (reder.HasRows)
+                    {
+                        fillTeam();
+                }
+                else
+                {
+                    command.CommandText = "insert into teams values ('" + txtId.Text + "')";
+                }
+                }
+            
+        }
+
+        private void txtTeamMember_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnCancel2_Click(object sender, EventArgs e)
+        {
+           
+        }
     }
 }
