@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SpmManagement.Reports;
+
 namespace SpmManagement.Views
 {
     public partial class ReportView : Form
@@ -19,10 +19,19 @@ namespace SpmManagement.Views
 
         private void btnClientReport_Click(object sender, EventArgs e)
         {
-        
 
+            crystalReportViewer1.ReportSource = "C:\\Users\\care\\source\\repos\\SpmManagement\\SpmManagement\\Reports\\ClientReport.rpt";
         }
-        //Singleton Pattern (Open a single form instance)
-       
+
+        private void btnProjectReport_Click(object sender, EventArgs e)
+        {
+            crystalReportViewer1.ReportSource = "C:\\Users\\care\\source\\repos\\SpmManagement\\SpmManagement\\Reports\\ProjectReport.rpt";
+        }
+
+        private void btnTaskReport_Click(object sender, EventArgs e)
+        {
+            crystalReportViewer1.ReportSource = "C:\\Users\\care\\source\\repos\\SpmManagement\\SpmManagement\\Reports\\TaskReport.rpt";
+        }
+
     }
 }

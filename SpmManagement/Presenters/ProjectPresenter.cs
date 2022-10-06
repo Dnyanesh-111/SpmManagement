@@ -78,7 +78,7 @@ namespace SpmManagement.Presenters
             model.Status = view.Status;
             model.Requirements = view.Requirement;
             model.Cdate = view.Cdate;
-            model.Team = view.Team;
+            model.Team = "Not-Assigned";
             try
             {
                 new Common.ModelDataValidation().Validate(model);

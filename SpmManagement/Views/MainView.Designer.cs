@@ -186,6 +186,7 @@ namespace SpmManagement.Views
             this.btnDashboard.Text = "DASHBOARD";
             this.btnDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDashboard.UseVisualStyleBackColor = true;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // panel1
             // 

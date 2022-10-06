@@ -29,28 +29,46 @@ namespace SpmManagement.Views
         public event EventHandler ShowTaskView;
         public event EventHandler ShowReportView;
 
+         ReportView reportView ;
         private void btnReports_Click(object sender, EventArgs e)
         {
-           RGetInstance(this);
-        }
-        //Singleton Pattern (Open a single form instance)
-        private static ReportView instance;
-        public void RGetInstance(Form parentContainer)
-        {
-            if (instance == null || instance.IsDisposed)
+            
+            //view.WindowState = FormWindowState.Maximized;
+            //view.MdiParent = this;
+            //view.Show();
+            if (reportView == null || reportView.IsDisposed)
             {
-                instance = new ReportView();
-                instance.MdiParent = parentContainer;
-                instance.FormBorderStyle = FormBorderStyle.None;
-                instance.Dock = DockStyle.Fill;
+                reportView = new ReportView();
+                reportView.MdiParent = this;
+                reportView.FormBorderStyle = FormBorderStyle.None;
+                reportView.Dock = DockStyle.Fill;
+                reportView.Show();
             }
             else
             {
-                if (instance.WindowState == FormWindowState.Minimized)
-                    instance.WindowState = FormWindowState.Normal;
-                instance.BringToFront();
+                if (reportView.WindowState == FormWindowState.Minimized)
+                    reportView.WindowState = FormWindowState.Normal;
+                    reportView.BringToFront();
             }
-           
+        }
+
+        DashbordView dashbordView;
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            if (dashbordView == null || dashbordView.IsDisposed)
+            {
+                dashbordView = new DashbordView();
+                dashbordView.MdiParent = this;
+                dashbordView.FormBorderStyle = FormBorderStyle.None;
+                dashbordView.Dock = DockStyle.Fill;
+                dashbordView.Show();
+            }
+            else
+            {
+                if (dashbordView.WindowState == FormWindowState.Minimized)
+                    dashbordView.WindowState = FormWindowState.Normal;
+                dashbordView.BringToFront();
+            }
         }
     }
 }

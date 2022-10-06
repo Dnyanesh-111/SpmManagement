@@ -60,3 +60,6 @@ C:\Users\care\source\repos\SpmManagement\SpmManagement\bin\Debug\CrystalDecision
 C:\Users\care\source\repos\SpmManagement\SpmManagement\bin\Debug\stdole.dll
 C:\Users\care\source\repos\SpmManagement\SpmManagement\obj\Debug\SpmManagement.Views.ReportView.resources
 C:\Users\care\source\repos\SpmManagement\SpmManagement\bin\Debug\CrystalDecisions.Windows.Forms.dll
+C:\Users\care\source\repos\SpmManagement\SpmManagement\obj\Debug\SpmManagement.csproj.AssemblyReference.cache
+C:\Users\care\source\repos\SpmManagement\SpmManagement\obj\Debug\SpmManagement.Views.DashbordView.resources
+C:\Users\care\source\repos\SpmManagement\SpmManagement\obj\Debug\SpmManagement.Views.LoginView.resources
